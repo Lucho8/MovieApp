@@ -1,0 +1,258 @@
+/* ------------------ Estilos Globales ------------------ */
+
+body {
+  font-family: "Poppins", sans-serif; /* Uso de google fonts con poppins */
+  margin: 0;
+  padding: 0;
+  background-color: #b3a9a9;
+  color: #333;
+}
+
+/* ------------------ NavBar ------------------ */
+.header {
+  background-color: #333;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  display: flex; /* aca el uso del flexbox para el alineado de los objetos */
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo img {
+  color: white;
+  text-decoration: none;
+  width: 200px;
+  height: auto;
+  border-radius: 25%;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  padding: 5px 10px;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+/* ------------------ contenido del main  ------------------ */
+.main-content {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* Crea un grid de columnas que se repite automáticamente al menos 2  hasta un máximo de 4 pero se pueden colocar mas sin drama */
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* ------------------ carta de las pelis ------------------ */
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* puse un poco de sombra porque sino siento que se mezcla mucho con el fondo  */
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(
+    -5px
+  ); /* un efecto del mouse mas que nada comodidad visual responsiva */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  height: 350px;
+  width: auto;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+.genre {
+  color: #777;
+  font-size: 0.9em;
+  margin-bottom: 15px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 4%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.buy {
+  background-color: #007bff;
+  color: white;
+}
+
+.rent {
+  background-color: #28a745;
+  color: white;
+}
+
+/* ------------------ footer ------------------ */
+.footer {
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+.footer-content p {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+/* ------------------ estilos de reseñas ------------------ */
+
+.review-box {
+  display: flex;
+  background-color: white;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 2);
+  border-top: #007bff solid 5px;
+}
+.review-box img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+.review-box h2 {
+  margin-top: 0;
+  color: #333;
+}
+.review-meta {
+  color: #777;
+  font-size: 0.9em;
+  margin-bottom: 15px;
+  border-bottom: 1px dashed #eee;
+  padding-bottom: 5px;
+}
+.review-content p {
+  line-height: 1.6;
+}
+
+/* ------------------ estilos de contacto ------------------ */
+
+.contact-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 1.5);
+}
+
+.contact-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.form-group textarea {
+  resize: vertical;
+  height: 150px;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* ------------------ estilos responsivos (media) del contact ------------------ */
+
+@media (max-width: 768px) {
+  /* ajustamos el contenido principal de la pagina */
+  .main-content {
+    padding: 0;
+  }
+
+  /* ajuste del container principal  */
+  .contact-container {
+    max-width: 100%;
+    margin: 20px 15px; /* margen para celu */
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  /* titulo mas pequeño para celu */
+  .contact-container h1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+
+  /* achica el boton */
+  .submit-btn {
+    padding: 12px;
+    font-size: 1em;
+  }
+}

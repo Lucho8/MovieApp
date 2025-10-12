@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎬 Contacto | Plataforma de Películas</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../img/LOGO.png" alt="Logo" />
+          </a>
+        </div>
+
+        <div class="nav-links">
+          <a href="../pages/reviews.html" class="nav-item">Reseñas</a>
+          <a href="../pages/contact.html" class="nav-item">Contacto</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <div class="contact-container">
+        <h1>Contáctanos</h1>
+
+        <form action="https://formspree.io/f/xvgwwnlj" method="POST">
+          <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Enviar Mensaje</button>
+        </form>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>
+          &copy; 2025 Plataforma de Películas. | Términos de Servicio | Política
+          de Privacidad
+        </p>
+        <p>Síguenos en redes sociales.</p>
+      </div>
+    </footer>
+  </body>
+</html>
