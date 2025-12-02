@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🎬 Reseñas de Películas</title>
+    <title>🎬 Carrito de Compras</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
@@ -25,23 +26,34 @@
         <div class="nav-links">
           <a href="./reviews.html" class="nav-item">Reseñas</a>
           <a href="./contact.html" class="nav-item">Contacto</a>
-          <a
-            href="./cart.html"
-            class="nav-item"
-            style="background: none; color: white"
-          >
-            🛒 Carrito (<span id="cart-count">0</span>)
-          </a>
         </div>
       </nav>
     </header>
 
+    
     <main class="main-content">
-      <h1 id="main-title">Cargando Reseñas...</h1>
+      <div class="cart-page-container">
+        <h1>Tu Carrito de Compras</h1>
 
-      <section id="reviews-content"></section>
+        <section id="cart-items-list">
+         
+          <p style="text-align: center; color: #777">Cargando carrito...</p>
+        </section>
+
+        <div class="cart-summary">
+          Total: <span id="cart-total-price">$0.00</span>
+        </div>
+
+        <button
+          class="checkout-btn"
+          onclick="alert('¡Pago simulado realizado! Este botón claramente no funciona :p (aun(? ).')"
+        >
+          Proceder al Pago
+        </button>
+      </div>
     </main>
 
+    
     <footer class="footer">
       <div class="footer-content">
         <p>
@@ -51,11 +63,12 @@
         <p>Contactenos cualquier duda.</p>
       </div>
     </footer>
+    </footer>
 
+    
     <script type="module">
-      import { renderReviewsPage } from "../js/script.js";
-
-      document.addEventListener("DOMContentLoaded", renderReviewsPage);
+      import { renderCartPage } from "../js/script.js";
+      document.addEventListener("DOMContentLoaded", renderCartPage);
     </script>
   </body>
 </html>

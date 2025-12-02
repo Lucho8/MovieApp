@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🎬 Contacto | Plataforma de Películas</title>
+    <title>🎬 Contactanos</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,8 +23,8 @@
         </div>
 
         <div class="nav-links">
-          <a href="../pages/reviews.html" class="nav-item">Reseñas</a>
-          <a href="../pages/contact.html" class="nav-item">Contacto</a>
+          <a href="./reviews.html" class="nav-item">Reseñas</a>
+          <a href="./contact.html" class="nav-item">Contacto</a>
         </div>
       </nav>
     </header>
@@ -33,24 +33,60 @@
       <div class="contact-container">
         <h1>Contáctanos</h1>
 
-        <form action="https://formspree.io/f/xvgwwnlj" method="POST">
+        <!-- Usaremos JavaScript para manejar el envío y la validación -->
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/xvgwwnlj"
+          method="POST"
+        >
           <div class="form-group">
             <label for="name">Nombre:</label>
             <input type="text" id="name" name="name" required />
+            <p
+              class="error-message"
+              id="error-name"
+              style="color: red; font-size: 0.85em; margin-top: 5px"
+            ></p>
           </div>
 
           <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required />
+            <p
+              class="error-message"
+              id="error-email"
+              style="color: red; font-size: 0.85em; margin-top: 5px"
+            ></p>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Asunto:</label>
+            <input type="text" id="subject" name="subject" required />
+            <p
+              class="error-message"
+              id="error-subject"
+              style="color: red; font-size: 0.85em; margin-top: 5px"
+            ></p>
           </div>
 
           <div class="form-group">
             <label for="message">Mensaje:</label>
             <textarea id="message" name="message" required></textarea>
+            <p
+              class="error-message"
+              id="error-message-text"
+              style="color: red; font-size: 0.85em; margin-top: 5px"
+            ></p>
           </div>
 
           <button type="submit" class="submit-btn">Enviar Mensaje</button>
         </form>
+
+        <!-- Contenedor para mensajes de éxito/error después del envío -->
+        <p
+          id="form-status-message"
+          style="text-align: center; margin-top: 20px; font-weight: bold"
+        ></p>
       </div>
     </main>
 
@@ -63,5 +99,6 @@
         <p>Síguenos en redes sociales.</p>
       </div>
     </footer>
+    <script type="module" src="../js/contact.js"></script>
   </body>
 </html>

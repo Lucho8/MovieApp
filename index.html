@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🎬 Tomates Frescos - Alquiler y Compra</title>
+    <title>
+      🎬 FreshTomatoes - La mejor paginas de reseñas y compras de tus pelis
+      favoritas
+    </title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,65 +29,23 @@
         <div class="nav-links">
           <a href="pages/reviews.html" class="nav-item">Reseñas</a>
           <a href="pages/contact.html" class="nav-item">Contacto</a>
+
+          <a
+            href="pages/cart.html"
+            class="nav-item"
+            style="background: none; color: white"
+          >
+            🛒 Carrito (<span id="cart-count">0</span>)
+          </a>
         </div>
       </nav>
     </header>
 
     <main class="main-content">
       <h1>Películas Disponibles</h1>
-
-      <section class="movie-grid">
-        <div class="card">
-          <img
-            class="card-image"
-            src="img/PulpFiction.webp"
-            alt="Pulp Fiction"
-          />
-          <h2>Pulp Fiction</h2>
-          <p class="genre">Crimen/Thriller | 1994</p>
-          <div class="actions">
-            <button class="btn buy">Comprar ($1500)</button>
-            <button class="btn rent">Alquilar ($100)</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <img
-            class="card-image"
-            src="img/Interstellar.webp"
-            alt="Interstellar"
-          />
-          <h2>Interstellar</h2>
-          <p class="genre">Ciencia Ficción/Drama | 2014</p>
-          <div class="actions">
-            <button class="btn buy">Comprar ($1500)</button>
-            <button class="btn rent">Alquilar ($100)</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <img
-            src="img/TheGodfather.webp"
-            alt="The Godfather"
-            class="card-image"
-          />
-          <h2>The Godfather</h2>
-          <p class="genre">Crimen/Drama | 1972</p>
-          <div class="actions">
-            <button class="btn buy">Comprar ($1500)</button>
-            <button class="btn rent">Alquilar ($100)</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="img/Parasite.webp" alt="Parasite" class="card-image" />
-          <h2>Parasite</h2>
-          <p class="genre">Thriller | 2019</p>
-          <div class="actions">
-            <button class="btn buy">Comprar ($1500)</button>
-            <button class="btn rent">Alquilar ($100)</button>
-          </div>
-        </div>
+      <!-- Contenedor VACÍO: JS inyectará las tarjetas de película aquí -->
+      <section class="movie-grid" id="movie-grid-container">
+        <!-- Las tarjetas se cargarán dinámicamente mediante JavaScript -->
       </section>
     </main>
 
@@ -97,5 +58,12 @@
         <p>Contactenos cualquier duda.</p>
       </div>
     </footer>
+    <script type="module">
+      // Importa la función de renderizado de tarjetas desde el archivo de lógica
+      import { renderMovieCards } from "./js/script.js";
+
+      // Cargar las tarjetas al inicio, después de que el DOM esté listo
+      document.addEventListener("DOMContentLoaded", renderMovieCards);
+    </script>
   </body>
 </html>
