@@ -7,17 +7,29 @@ Este proyecto es una aplicación web SPA (Single Page Application) modular que s
 La aplicación sigue una arquitectura modular clara, separando las responsabilidades de datos, lógica y presentación:
 
 tu-proyecto/
+
 ├── css/
+
 │   └── styles.css      # Estilos globales y responsivos.
+
 ├── js/
+
 │   ├── movies.js       # Módulo asíncrono que simula la llamada a la API (Fetch).
+
 │   ├── script.js       # Lógica principal (Carrito, Renderizado de Index/Reseñas).
+
 │   └── contact.js      # Lógica exclusiva de validación del formulario de Contacto.
+
 ├── pages/
+
 │   ├── cart.html       # Vista dedicada para el carrito de compras.
+
 │   ├── contact.html    # Formulario de contacto y validación.
+
 │   └── reviews.html    # Lista de reseñas y vista individual.
+
 ├── img/                # Contenedor para imágenes de posters y logo.
+
 └── index.html          # Página principal y listado de productos.
 
 
