@@ -8,7 +8,7 @@ const rawData = [
     price: 8500,
     genre: "Crimen / Thriller",
     yearOfRelease: 1994,
-    image: "img/Pulpfiction.webp",
+    image: "img/PulpFiction.webp",
     review:
       "Una obra maestra de Tarantino. Su narrativa no lineal y diálogos ingeniosos hacen que cada escena sea icónica. Definitivamente imperdible para entender el cine moderno, con personajes inolvidables y una banda sonora increíble que complementa la acción.",
   },
