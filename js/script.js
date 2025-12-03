@@ -247,7 +247,7 @@ export const renderReviewsPage = async () => {
       container.innerHTML = `
                 <div class="single-review-detail">
                     <div class="review-img">
-                        <img  class="card-image" src="../${movie.image}" alt="Poster de ${movie.title}">
+                        
                     </div>
                     <div class="review-info">
                         <h2>${movie.title}</h2>
@@ -271,9 +271,7 @@ export const renderReviewsPage = async () => {
         (movie) => `
             <div class="review-box">
             
-                <img  class="card-image" src="../${
-                  movie.image
-                }" alt="Poster de ${movie.title}">
+              
         
                 <p class="review-meta">Género: ${movie.genre} | Año: ${
           movie.yearOfRelease
