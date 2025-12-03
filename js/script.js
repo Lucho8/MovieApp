@@ -1,20 +1,7 @@
-//import { getMovieData } from "./movies.js";
-
 const formatPrice = (price) => `$${price.toLocaleString("es-ES")}`;
 
 let apiMovieData = [];
 
-async function fetchMovies() {
-  try {
-    const response = await fetch("./movies.js");
-    allProducts = await response.json();
-    renderProducts(allProducts);
-  } catch (error) {
-    console.error("Error fetching products:", error);
-    productContainer.innerHTML =
-      '<p class="text-center text-danger">No se pudieron cargar los productos.</p>';
-  }
-}
 
 const loadCart = () => {
   try {
@@ -26,10 +13,7 @@ const loadCart = () => {
   }
 };
 
-/**
- * Guarda el carrito actual en localStorage.
- * @param {Array} cart - El array del carrito a guardar.
- */
+
 const saveCart = (cart) => {
   try {
     const serializedCart = JSON.stringify(cart);
@@ -41,9 +25,7 @@ const saveCart = (cart) => {
 
 let cart = loadCart();
 
-/**
- * Actualiza el contador del carrito en la Navbar.
- */
+
 const updateCartCount = () => {
   const cartCountElement = document.getElementById("cart-count");
   if (cartCountElement) {
@@ -53,11 +35,7 @@ const updateCartCount = () => {
   }
 };
 
-/**
- * Añade una película al carrito y lo guarda.
 
- * @param {number} movieId - El ID de la película a añadir.
- */
 window.addToCart = (movieId) => {
   const movie = apiMovieData.find((m) => m.id === movieId);
   if (!movie) {
@@ -86,10 +64,7 @@ window.addToCart = (movieId) => {
   alert(`¡"${movie.title}" ha sido añadido/incrementado en el carrito!`);
 };
 
-/**
- * Elimina un ítem del carrito por su índice.
- * @param {number} index - El índice del ítem en el array del carrito.
- */
+
 window.removeItemFromCart = (index) => {
   if (index > -1 && index < cart.length) {
     cart.splice(index, 1);
@@ -136,10 +111,22 @@ const ensureDataLoaded = async (container) => {
         '<p style="text-align: center;">Cargando películas...</p>';
     }
     try {
-      const response = await fetch("movies.js");
+      
+      const isPagesFolder = window.location.pathname.includes("/pages/");
+      const basePath = isPagesFolder ? "../js/movies.js" : "./js/movies.js";
+
+      const response = await fetch(basePath);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       apiMovieData = await response.json();
+
+      
+      if (container) container.innerHTML = "";
     } catch (error) {
-      console.error("Error al obtener los datos de la API:", error);
+      console.error("Error al obtener los datos de la API simulada:", error);
       if (container) {
         container.innerHTML =
           '<p style="text-align: center; color: red;">Error al cargar las películas. Inténtalo de nuevo más tarde.</p>';
@@ -147,8 +134,7 @@ const ensureDataLoaded = async (container) => {
       return false;
     }
   }
-  console.log(apiMovieData);
-
+   console.log(apiMovieData); 
   return apiMovieData.length > 0;
 };
 
@@ -156,7 +142,7 @@ export const renderMovieCards = async () => {
   const container = document.getElementById("movie-grid-container");
   if (!container) return;
 
-  // Esperar a que los datos estén cargados antes de renderizar
+ 
   if (!(await ensureDataLoaded(container))) return;
 
   const cardsHTML = apiMovieData
@@ -202,7 +188,7 @@ export const renderCartPage = () => {
   let total = 0;
   const itemsHTML = cart
     .map((item, index) => {
-      // Calculamos el subtotal para el ítem actual
+      
       const subtotal = item.price * item.quantity;
       total += subtotal;
 
@@ -232,7 +218,7 @@ export const renderCartPage = () => {
 
 const getMovieIdFromUrl = () => {
   const params = new URLSearchParams(window.location.search);
-  // Intentamos parsear el 'id' a número. Si no existe, devuelve 0.
+  
   return parseInt(params.get("id"));
 };
 
@@ -243,9 +229,8 @@ export const renderReviewsPage = async () => {
 
   if (!container || !mainTitle) return;
 
-  apiMovieData = await getMovieData();
+  if (!(await ensureDataLoaded(container))) return;
 
-  console.log(apiMovieData);
 
   if (!isNaN(movieId) && movieId > 0) {
     const movie = apiMovieData.find((m) => m.id === movieId);
