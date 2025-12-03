@@ -43,10 +43,8 @@
 
     <main class="main-content">
       <h1>Películas Disponibles</h1>
-      <!-- Contenedor VACÍO: JS inyectará las tarjetas de película aquí -->
-      <section class="movie-grid" id="movie-grid-container">
-        <!-- Las tarjetas se cargarán dinámicamente mediante JavaScript -->
-      </section>
+
+      <section class="movie-grid" id="movie-grid-container"></section>
     </main>
 
     <footer class="footer">
@@ -59,10 +57,7 @@
       </div>
     </footer>
     <script type="module">
-      // Importa la función de renderizado de tarjetas desde el archivo de lógica
       import { renderMovieCards } from "./js/script.js";
-
-      // Cargar las tarjetas al inicio, después de que el DOM esté listo
       document.addEventListener("DOMContentLoaded", renderMovieCards);
     </script>
   </body>

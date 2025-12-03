@@ -1,7 +1,4 @@
-/**
- * Exportamos los datos de las películas como un array de objetos.
- */
-const rawData = [
+[
   {
     id: 1,
     title: "Pulp Fiction",
@@ -83,11 +80,3 @@ const rawData = [
       "Una obra maestra de acción frenética y diseño visual puro. Es prácticamente una persecución de dos horas con una narrativa simple pero potente y personajes femeninos fuertes.",
   },
 ];
-
-export const getMovieData = async () => {
-    // 💡 Agrego para simular una red lenta y ver que funcione el fetch
-    await new Promise(resolve => setTimeout(resolve, 500)); 
-    
-    console.log("FETCH: Obteniendo datos de películas...");
-    return rawData;
-};

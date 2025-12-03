@@ -1,12 +1,20 @@
-import { getMovieData } from "./movies.js";
-
-let apiMovieData = [];
+//import { getMovieData } from "./movies.js";
 
 const formatPrice = (price) => `$${price.toLocaleString("es-ES")}`;
 
-/**
- * Cargamos el carrito desde el storage local. Si no existe, devuelve un array vacío.
- */
+let apiMovieData = [];
+
+async function fetchMovies() {
+  try {
+    const response = await fetch("./movies.js");
+    allProducts = await response.json();
+    renderProducts(allProducts);
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    productContainer.innerHTML =
+      '<p class="text-center text-danger">No se pudieron cargar los productos.</p>';
+  }
+}
 
 const loadCart = () => {
   try {
@@ -128,8 +136,8 @@ const ensureDataLoaded = async (container) => {
         '<p style="text-align: center;">Cargando películas...</p>';
     }
     try {
-      // 💡 Llamada al fetch a través del módulo movies.js
-      apiMovieData = await getMovieData();
+      const response = await fetch("movies.js");
+      apiMovieData = await response.json();
     } catch (error) {
       console.error("Error al obtener los datos de la API:", error);
       if (container) {
@@ -247,7 +255,7 @@ export const renderReviewsPage = async () => {
       container.innerHTML = `
                 <div class="single-review-detail">
                     <div class="review-img">
-                        
+                        <img  class="card-image" src="../${movie.image}" alt="Poster de ${movie.title}">
                     </div>
                     <div class="review-info">
                         <h2>${movie.title}</h2>
@@ -271,7 +279,9 @@ export const renderReviewsPage = async () => {
         (movie) => `
             <div class="review-box">
             
-              
+                <img  class="card-image" src="../${movie.image}" alt="${
+          movie.title
+        }">
         
                 <p class="review-meta">Género: ${movie.genre} | Año: ${
           movie.yearOfRelease
