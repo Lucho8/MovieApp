@@ -2,7 +2,7 @@ const formatPrice = (price) => `$${price.toLocaleString("es-ES")}`;
 
 let apiMovieData = [];
 
-// --- LÓGICA DEL CARRITO (Se mantiene igual) ---
+
 const loadCart = () => {
   try {
     const serializedCart = localStorage.getItem("shoppingCart");
@@ -32,7 +32,7 @@ const updateCartCount = () => {
   }
 };
 
-// Estas funciones deben ser globales (window) para que funcionen los onclick del HTML
+
 window.addToCart = (movieId) => {
   const movie = apiMovieData.find((m) => m.id === movieId);
   if (!movie) return;
@@ -76,7 +76,7 @@ window.decreaseQuantity = (index) => {
     if (cart[index].quantity > 1) {
       cart[index].quantity -= 1;
     } else {
-      // Opcional: eliminar si baja de 1
+      
       cart.splice(index, 1);
     }
     saveCart(cart);
@@ -181,7 +181,7 @@ const renderReviewsPage = async () => {
   const container = document.getElementById("reviews-content");
   const mainTitle = document.getElementById("main-title");
 
-  if (!container || !mainTitle) return; // Si no existen estos elementos, no estamos en la página de reviews
+  if (!container || !mainTitle) return; 
 
   if (!(await ensureDataLoaded(container))) return;
 
