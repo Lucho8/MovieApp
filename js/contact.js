@@ -73,7 +73,7 @@ const validateForm = (form) => {
   return isValid;
 };
 
-export const setupContactForm = () => {
+const setupContactForm = () => {
   const form = document.getElementById("contact-form");
   const statusMessage = document.getElementById("form-status-message");
 
